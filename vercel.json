@@ -1,7 +1,7 @@
 {
   "functions": {
     "app/main.py": {
-      "runtime": "@vercel/python"
+      "runtime": "python3.9"
     }
   },
   "routes": [
@@ -16,7 +16,7 @@
   ],
   "build": {
     "env": {
-      "PYTHONPATH": "app"
+      "PYTHONPATH": "."
     }
   }
 } 
