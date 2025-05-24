@@ -26,7 +26,11 @@ def test_health_check():
     """Test the health check endpoint"""
     response = client.get("/api/health")
     assert response.status_code == 200
-    assert response.json() == {"status": "healthy", "service": "image-upscaler"}
+    response_data = response.json()
+    assert response_data["status"] == "healthy"
+    assert response_data["service"] == "image-upscaler"
+    assert "ai_upscaler_available" in response_data
+    assert isinstance(response_data["ai_upscaler_available"], bool)
 
 
 def test_upscale_no_file():
